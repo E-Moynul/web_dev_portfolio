@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moynul Rifat | Robotics Engineer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    /* ---- carousel image height ---- */
+    .carousel-item img {
+      height: 800px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* ---- about photo ---- */
+    .about-img {
+      width: 100%;
+      max-width: 400px;
+      height: 500px;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    /* ---- carousel caption styling ---- */
+    .carousel-caption-custom {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #fff;
+      padding: 0 1rem;
+    }
+    .carousel-caption-custom h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+      letter-spacing: -0.02em;
+    }
+    .carousel-caption-custom p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      margin-bottom: 1.5rem;
+    }
+    .carousel-caption-custom .btn {
+      font-weight: 600;
+      padding: 0.6rem 1.6rem;
+      font-size: 1rem;
+      border-radius: 6px;
+    }
+    /* dark overlay on carousel slides */
+    .carousel-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.38);
+    }
+    .carousel-caption-custom { z-index: 2; }
+
+    /* ---- skills accordion icon ---- */
+    .accordion-button::after {
+      filter: invert(1);
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: #0d6efd;
+      color: #fff;
+    }
+    .accordion-button:not(.collapsed)::after {
+      filter: invert(1);
+    }
+
+    /* ---- education & project card hover ---- */
+    .card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    /* ---- section spacing ---- */
+    .section-title-bar {
+      width: 60px;
+      height: 4px;
+      background: #0d6efd;
+      border-radius: 2px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ---- navbar brand ---- */
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* ---- contact section ---- */
+    #contact {
+      background: #f8f9fa;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #0d6efd;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: #0a58ca; }
+
+    /* ---- footer ---- */
+    footer {
+      background: #212529;
+      color: #adb5bd;
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a { color: #6ea8fe; text-decoration: none; }
+    footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary border-bottom fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4" href="#">Moynul <span class="text-primary">Rifat</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-5 text-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About_me</a>
+          </li>
+          <!-- Added Research to Navbar -->
+          <li class="nav-item">
+            <a class="nav-link" href="#research">Research</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">Skills</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#skills">Technical_Skills</a></li>
+              <li><a class="dropdown-item" href="#skills">Robotics</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#skills">Research</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ========== CAROUSEL / HOME ========== -->
+<div id="home">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top: 56px;">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+      class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <img src="image2.jpg" class="d-block w-100" alt="Slide 1">
+        <div class="carousel-caption-custom">
+          <h2>Hi, I'm Moynul Rifat</h2>
+          <p>Robotics Engineer &amp; Robotics Researcher</p>
+          <a href="#about" class="btn btn-primary me-2">About Me</a>
+          <a href="#contact" class="btn btn-outline-light">Contact</a>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img src="image2.jpg" class="d-block w-100" alt="Slide 2">
+        <div class="carousel-caption-custom">
+          <h2>IEEE Published Researcher</h2>
+          <p>Publications on IEEE Explore Digital Library</p>
+          <a href="https://ieeexplore.ieee.org/document/11546556" target="_blank" class="btn btn-primary">View Paper</a>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <img src="image2.jpg" class="d-block w-100" alt="Slide 3">
+        <div class="carousel-caption-custom">
+          <h2>Robotics &amp; ROS2 Developer</h2>
+          <p>Building autonomous systems with ROS2, Gazebo &amp; NVIDIA Isaac Sim</p>
+          <a href="#skills" class="btn btn-primary">See Skills</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!-- ========== ABOUT SECTION ========== -->
+<section id="about" class="py-5 bg-light">
+  <div class="container py-4">
+
+    <!-- Row 1: Text + Image -->
+    <div class="row align-items-center g-4">
+      <div class="col-md-6" data-aos="fade-right" data-aos-duration="700">
+        <h2 class="mb-4 fw-bold text-center" data-aos="zoom-in">About <span class="text-primary">Me</span></h2>
+        <hr class="w-25 mx-auto mb-4">
+        <p class="lead">Hello! I am Moynul Rifat.</p>
+        <p>
+          I am a 3rd-year BSc Engineering (ICT) student at Mawlana Bhashani Science and
+          Technology University (MBSTU), Bangladesh. I am a research minded roboticist with extreme passion on robots integrated with AI, and I want to dedicate my whole life on the most advanced robotics projects & research.
+        </p>
+        <p>
+          I am currently expanding my skills in ROS2 Humble, working with nodes, services, the TF2
+          transform library, and Gazebo simulation to build autonomous robotic projects.
+        </p>
+        <p>
+          I also enjoy competitive programming (Codeforces ~1380 rating) and have hands-on experience
+          with ROS, C++, Python, Linux, MediaPipe, OpenCV, and Arduino.
+        </p>
+      </div>
+      <div class="col-md-6 text-center" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+        <img src="image1.jpeg" class="about-img rounded shadow" alt="Moynul Rifat">
+      </div>
+    </div>
+
+    <!-- Row 2: Accordion (Skills) -->
+    <div id="skills" class="row mt-5">
+      <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0">
+        <div class="accordion" id="accordion1">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading1">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse1" aria-expanded="true">
+              <i class="bi bi-code-slash me-2"></i> Technical Skills
+            </button>
+          </h2>
+          <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordion1">
+            <div class="accordion-body">
+              <ul class="mb-0">
+                <li>C / C++ (Advanced)</li>
+                <li>Python (Intermediate)</li>
+                <li>ROS2 / ROS (Advanced)</li>
+                <li>MediaPipe & OpenCV (Advanced / Intermediate)</li>
+                <li>Linux / Bash (Intermediate)</li>
+                <li>Git (Intermediate)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapse2" aria-expanded="false">
+            <i class="bi bi-robot me-2"></i> Robotics
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+          <div class="accordion-body">
+            <ul class="mb-0">
+              <li>ROS2 Humble — Nodes, Topics, Services, Actions, Launch Files</li>
+              <li>TF2 Transform Library & URDF</li>
+              <li>Gazebo Simulation & RViz2 Visualization</li>
+              <li>Arduino / Embedded Systems</li>
+              <li>Reinforcement Learning (Learning)</li>
+              <li>NVIDIA Isaac Sim (Learning)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapse3" aria-expanded="false">
+          <i class="bi bi-journals me-2"></i> Research Scope
+        </button>
+      </h2>
+      <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+        <div class="accordion-body">
+          <ul class="mb-0">
+            <li><strong>Performance Analysis of Modern Filesystems on NVMe SSDs</strong> — <a href="https://ieeexplore.ieee.org/document/11546556" target="_blank">IEEE Published (2nd Author) ↗</a></li>
+            <li><strong>PCF-Based Orbital Angular Momentum (OAM) Mode Propagation Analysis</strong> — Target: IEEE Journal (Writing phase)</li>
+            <li><strong>Autonomous Mini Cleaner Robot (ROS2 + RL)</strong> — In Progress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- stats column -->
+<div class="col-12 col-lg-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150">
+  <div class="row g-3 h-100 align-content-start">
+    <div class="col-6">
+      <div class="card text-center p-3 h-100 border-0 shadow-sm">
+        <div class="display-6 fw-bold text-primary">1</div>
+        <div class="text-muted small mt-1">IEEE Conference Paper</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card text-center p-3 h-100 border-0 shadow-sm">
+        <div class="display-6 fw-bold text-primary">2</div>
+        <div class="text-muted small mt-1">Robotics Projects</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card text-center p-3 h-100 border-0 shadow-sm">
+        <div class="display-6 fw-bold text-primary">1380</div>
+        <div class="text-muted small mt-1">Codeforces Rating</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card text-center p-3 h-100 border-0 shadow-sm">
+        <div class="display-6 fw-bold text-primary">1</div>
+        <div class="text-muted small mt-1">Project on RSA_Cryptography</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card text-center p-3 h-100 border-0 shadow-sm">
+        <div class="fs-4 fw-bold text-primary mt-2">ROS2</div>
+        <div class="text-muted small mt-2">Primary Framework</div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card text-center p-3 h-100 border-0 shadow-sm">
+        <div class="display-6 fw-bold text-primary">3rd</div>
+        <div class="text-muted small mt-1">Year @ MBSTU</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- /Row 2 -->
+
+</div>
+</section>
+
+<!-- ========== RESEARCH SECTION ========== -->
+<section id="research" class="py-5 bg-white">
+  <div class="container py-4">
+
+    <h2 class="mb-2 fw-bold text-center" data-aos="fade-up">Research <span class="text-primary">Publications</span></h2>
+    <hr class="w-25 mx-auto mb-2">
+    <div class="section-title-bar" data-aos="zoom-in" data-aos-delay="100"></div>
+
+    <div class="row g-4 d-flex align-items-stretch">
+      
+      <!-- Research 1 -->
+      <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="160" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm" style="border-top: 3px solid #0d6efd;">
+          <div class="card-body d-flex flex-column">
+            <div>
+              <span class="badge bg-primary mb-2">IEEE CONFERENCE PAPER</span>
+              <h5 class="card-title text-dark fw-bold">Performance and Efficiency Analysis of Modern Filesystems on Consumer-Grade NVMe SSDs Under Real-World Mixed Workloads</h5>
+              <ul class="list-unstyled text-muted small mt-3 mb-2">
+                <li><strong>Conference:</strong> IEEE (Published)</li>
+                <li><strong>Role:</strong> 2nd Author</li>
+                <li><strong>Topic:</strong> Modern Filesystem Performance</li>
+              </ul>
+              <p class="card-text text-muted small mb-4">A comprehensive benchmarking study evaluating the throughput, latency, and I/O efficiency of modern filesystems [NTFS, BTRFS, ZFS, XFS & EXT4] on Consumer-Grade NVMe SSDs. This research provides data-driven insights into filesystem behavior and resource overhead under real-world mixed workloads.</p>
+            </div>
+            <div class="mt-auto">
+              <a href="https://ieeexplore.ieee.org/document/11546556" target="_blank" class="btn btn-outline-primary btn-sm">View on IEEE Xplore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research 2 -->
+      <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="240" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm" style="border-top: 3px solid #ffc107;">
+          <div class="card-body d-flex flex-column">
+            <div>
+              <span class="badge bg-secondary mb-2">JOURNAL PAPER</span>
+              <span class="badge bg-warning text-dark mb-2 ms-1">IN PROGRESS</span>
+              <h5 class="card-title text-dark fw-bold">PCF-Based Orbital Angular Momentum (OAM) Mode Propagation Analysis</h5>
+              <ul class="list-unstyled text-muted small mt-3 mb-2">
+                <li><strong>Target:</strong> IEEE Journal</li>
+                <li><strong>Role:</strong> 2nd Author</li>
+                <li><strong>Status:</strong> Writing phase</li>
+              </ul>
+              <p class="card-text text-muted small mb-4">Investigation of photonic crystal fiber structures for stable OAM mode transmission — targeting high-capacity optical communication systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research 3 -->
+      <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="320" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm" style="border-top: 3px solid #ffc107;">
+          <div class="card-body d-flex flex-column">
+            <div>
+              <span class="badge bg-secondary mb-2">RESEARCH PROJECT</span>
+              <span class="badge bg-warning text-dark mb-2 ms-1">IN PROGRESS</span>
+              <h5 class="card-title text-dark fw-bold">Autonomous Mini Cleaner Robot — ROS2 + Reinforcement Learning</h5>
+              <ul class="list-unstyled text-muted small mt-3 mb-2">
+                <li><strong>Framework:</strong> ROS2 Humble, Isaac Sim</li>
+                <li><strong>Target:</strong> IEEE Publication</li>
+                <li><strong>Status:</strong> Early development</li>
+              </ul>
+              <p class="card-text text-muted small mb-4">Designing an autonomous cleaning robot using reinforcement learning for path planning and obstacle avoidance, with simulation in NVIDIA Isaac Sim before hardware deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECTS SECTION ========== -->
+<section id="projects" class="py-5 bg-light">
+  <div class="container py-4">
+
+    <h2 class="mb-2 fw-bold text-center" data-aos="fade-up">Selected <span class="text-primary">Projects</span></h2>
+    <hr class="w-25 mx-auto mb-2">
+    <div class="section-title-bar" data-aos="zoom-in" data-aos-delay="100"></div>
+
+    <div class="row g-4 d-flex align-items-stretch">
+      
+      <!-- Project 1 -->
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <div>
+              <div class="display-6 mb-3">🤖</div>
+              <h5 class="card-title text-primary">AI Vision-Based 4-DOF Robot Arm</h5>
+              <p class="card-text text-muted small">Hand gesture-controlled robotic arm using MediaPipe for real-time hand tracking. Implements forward/inverse kinematics for a 4-DOF arm with Arduino-based actuation.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">Python</span>
+                <span class="badge bg-secondary">MediaPipe</span>
+                <span class="badge bg-secondary">Arduino</span>
+              </div>
+            </div>
+            <div class="mt-auto">
+              <a href="https://github.com/E-Moynul/AI-Vision-Based-Hand-Gesture-Controlled-4-DOF-Robot-Arm" target="_blank" class="btn btn-outline-primary btn-sm">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="240" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <div>
+              <div class="display-6 mb-3">🚗</div>
+              <h5 class="card-title text-primary">Differential Drive Robot — ROS2</h5>
+              <p class="card-text text-muted small">2-wheel differential drive robot with keyboard teleoperation and Gazebo simulation. Features a modular IMU/flex sensor gesture control layer publishing to /cmd_vel.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">ROS2</span>
+                <span class="badge bg-secondary">Gazebo</span>
+                <span class="badge bg-secondary">TF2</span>
+              </div>
+            </div>
+            <div class="mt-auto">
+              <a href="https://github.com/E-Moynul/ROS2-Modular-DiffBot" target="_blank" class="btn btn-outline-primary btn-sm">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="320" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body d-flex flex-column">
+            <div>
+              <div class="display-6 mb-3">🔐</div>
+              <h5 class="card-title text-primary">RSA Cryptosystem</h5>
+              <p class="card-text text-muted small">A complete, standard-library-only implementation of the RSA algorithm in Python. Features include key generation, encryption/decryption, and a live web demo.</p>
+              <div class="mb-3">
+                <span class="badge bg-secondary">Python</span>
+                <span class="badge bg-secondary">Streamlit</span>
+                <span class="badge bg-secondary">Cryptography</span>
+              </div>
+            </div>
+            <div class="mt-auto d-flex gap-2">
+              <a href="https://github.com/E-Moynul/RSA_CryptoSystem" target="_blank" class="btn btn-outline-primary btn-sm">GitHub</a>
+              <a href="https://rsacryptosystem-moynul-rifat.streamlit.app/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== EDUCATION SECTION ========== -->
+<section id="Education" class="py-5 bg-white">
+  <div class="container py-4">
+
+    <h2 class="mb-2 fw-bold text-center" data-aos="fade-up">Education</h2>
+    <hr class="w-25 mx-auto mb-2">
+    <div class="section-title-bar" data-aos="zoom-in" data-aos-delay="100"></div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- HSC -->
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="..." class="card-img-top" alt="HSC" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h5 class="card-title text-primary">HSC</h5>
+            <p class="card-text text-muted small">Higher Secondary Certificate</p>
+            <p class="card-text">Group: Science. Name: Government Science College, Dhaka.<br> GPA : 5.00.</p>
+            <a href="#" class="btn btn-primary btn-sm">Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BSc -->
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="240" data-aos-duration="600">
+        <div class="card h-100 border-0 shadow-sm border-primary">
+          <img src="..." class="card-img-top" alt="BSc" onerror="this.style.display='none'">
+          <div class="card-body">
+            <h5 class="card-title text-primary">BSc Engineering (ICT)</h5>
+            <p class="card-text text-muted small">2022 – Present · 3rd Year</p>
+            <p class="card-text">Mawlana Bhashani Science and Technology University (MBSTU), Tangail, Bangladesh.</p>
+            <span class="badge bg-success mb-2">Ongoing</span><br>
+            <a href="https://mbstu.ac.bd" target="_blank" class="btn btn-primary btn-sm">University Site</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container py-4">
+
+    <h2 class="mb-2 fw-bold text-center" data-aos="fade-up">Contact <span class="text-primary">Me</span></h2>
+    <hr class="w-25 mx-auto mb-2">
+    <div class="section-title-bar" data-aos="zoom-in" data-aos-delay="100"></div>
+
+    <div class="row justify-content-center g-4">
+
+      <div class="col-12 col-md-8 col-lg-6" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+        <div class="card border-0 shadow-sm p-4">
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3 d-flex align-items-center gap-3">
+              <i class="bi bi-envelope-fill text-primary fs-4"></i>
+              <div>
+                <div class="text-muted small">Email</div>
+                <ul class="mb-0 ps-3">
+                  <li><a href="mailto:it23017@mbstu.ac.bd" class="contact-link">it23017@mbstu.ac.bd</a></li>
+                  <li><a href="mailto:comedykhomedy@gmail.com" class="contact-link">comedykhomedy@gmail.com</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-3 d-flex align-items-center gap-3">
+              <i class="bi bi-github text-dark fs-4"></i>
+              <div>
+                <div class="text-muted small">GitHub</div>
+                <a href="https://github.com/e-moynul" target="_blank" class="contact-link">github.com/e-moynul</a>
+              </div>
+            </li>
+            <li class="mb-3 d-flex align-items-center gap-3">
+              <i class="bi bi-file-earmark-text-fill text-primary fs-4"></i>
+              <div>
+                <div class="text-muted small">IEEE Publication</div>
+                <a href="https://ieeexplore.ieee.org/document/11546556" target="_blank" class="contact-link">View on IEEE Xplore ↗</a>
+              </div>
+            </li>
+            <li class="d-flex align-items-center gap-3">
+              <i class="bi bi-geo-alt-fill text-danger fs-4"></i>
+              <div>
+                <div class="text-muted small">Location</div>
+                <span class="fw-500">Bangladesh</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <p class="mb-1">
+      &copy; 2026 <strong>Moynul Rifat</strong> &mdash; BSc ICT, MBSTU, Bangladesh
+    </p>
+    <p class="mb-0 small">
+      <a href="https://github.com/e-moynul" target="_blank">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://ieeexplore.ieee.org/document/11546556" target="_blank">IEEE Paper</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ========== SCRIPTS ========== -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    offset: 80,
+    duration: 650,
+    easing: 'ease-out-cubic'
+  });
+</script>
+</body>
+</html>
