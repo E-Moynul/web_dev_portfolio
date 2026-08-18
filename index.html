@@ -125,6 +125,28 @@
     }
     footer a { color: #6ea8fe; text-decoration: none; }
     footer a:hover { color: #fff; }
+
+    /* ---- terminal badge ---- */
+    .terminal-badge {
+      background: rgba(33, 37, 41, 0.9);
+      border: 1px solid rgba(13, 110, 253, 0.3);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.85em;
+      color: #0d6efd;
+      display: inline-block;
+      margin-top: 15px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    .cursor {
+      display: inline-block;
+      width: 8px; height: 1em;
+      background: #0d6efd;
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
   </style>
 </head>
 <body>
@@ -146,7 +168,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#about">About_me</a>
           </li>
-          <!-- Added Research to Navbar -->
           <li class="nav-item">
             <a class="nav-link" href="#research">Research</a>
           </li>
@@ -157,10 +178,10 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">Skills</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#skills">Technical_Skills</a></li>
-              <li><a class="dropdown-item" href="#skills">Robotics</a></li>
+              <li><a class="dropdown-item" href="#skills">Programming</a></li>
+              <li><a class="dropdown-item" href="#skills">Robotics & Vision</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#skills">Research</a></li>
+              <li><a class="dropdown-item" href="#skills">Research Scope</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -236,8 +257,9 @@
     <!-- Row 1: Text + Image -->
     <div class="row align-items-center g-4">
       <div class="col-md-6" data-aos="fade-right" data-aos-duration="700">
-        <h2 class="mb-4 fw-bold text-center" data-aos="zoom-in">About <span class="text-primary">Me</span></h2>
-        <hr class="w-25 mx-auto mb-4">
+        <h2 class="mb-4 fw-bold text-center text-md-start" data-aos="zoom-in">About <span class="text-primary">Me</span></h2>
+        <hr class="w-25 ms-0 mb-4 d-none d-md-block">
+        <hr class="w-25 mx-auto mb-4 d-md-none">
         <p class="lead">Hello! I am Moynul Rifat.</p>
         <p>
           I am a 3rd-year BSc Engineering (ICT) student at Mawlana Bhashani Science and
@@ -251,6 +273,9 @@
           I also enjoy competitive programming (Codeforces ~1380 rating) and have hands-on experience
           with ROS, C++, Python, Linux, MediaPipe, OpenCV, and Arduino.
         </p>
+        <div class="terminal-badge">
+          <span class="text-light">user@portfolio:~$</span> ./start_robotics_profile.sh<span class="cursor"></span>
+        </div>
       </div>
       <div class="col-md-6 text-center" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
         <img src="image1.jpeg" class="about-img rounded shadow" alt="Moynul Rifat">
@@ -266,18 +291,16 @@
             <h2 class="accordion-header" id="heading1">
               <button class="accordion-button" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapse1" aria-expanded="true">
-              <i class="bi bi-code-slash me-2"></i> Technical Skills
+              <i class="bi bi-code-slash me-2"></i> Programming & Development
             </button>
           </h2>
           <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordion1">
             <div class="accordion-body">
               <ul class="mb-0">
-                <li>C / C++ (Advanced)</li>
-                <li>Python (Intermediate)</li>
-                <li>ROS2 / ROS (Advanced)</li>
-                <li>MediaPipe & OpenCV (Advanced / Intermediate)</li>
-                <li>Linux / Bash (Intermediate)</li>
-                <li>Git (Intermediate)</li>
+                <li>C / C++ <span class="badge bg-secondary ms-1">Advanced</span></li>
+                <li>Python <span class="badge bg-secondary ms-1">Intermediate</span></li>
+                <li>Linux / Bash <span class="badge bg-secondary ms-1">Intermediate</span></li>
+                <li>Git <span class="badge bg-secondary ms-1">Intermediate</span></li>
               </ul>
             </div>
           </div>
@@ -293,16 +316,33 @@
         <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordion1">
           <div class="accordion-body">
             <ul class="mb-0">
-              <li>ROS2 Humble — Nodes, Topics, Services, Actions, Launch Files</li>
-              <li>TF2 Transform Library & URDF</li>
-              <li>Gazebo Simulation & RViz2 Visualization</li>
-              <li>Arduino / Embedded Systems</li>
-              <li>Reinforcement Learning (Learning)</li>
-              <li>NVIDIA Isaac Sim (Learning)</li>
+              <li>ROS2 / ROS <span class="badge bg-secondary ms-1">Advanced</span></li>
+              <li>Gazebo Simulation <span class="badge bg-secondary ms-1">Intermediate</span></li>
+              <li>Arduino / Embedded <span class="badge bg-secondary ms-1">Intermediate</span></li>
+              <li>URDF / TF2 <span class="badge bg-secondary ms-1">Intermediate</span></li>
             </ul>
           </div>
         </div>
       </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingAI">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseAI" aria-expanded="false">
+          <i class="bi bi-eye me-2"></i> AI & Vision
+        </button>
+      </h2>
+      <div id="collapseAI" class="accordion-collapse collapse" data-bs-parent="#accordion1">
+        <div class="accordion-body">
+          <ul class="mb-0">
+            <li>MediaPipe <span class="badge bg-secondary ms-1">Advanced</span></li>
+            <li>OpenCV <span class="badge bg-secondary ms-1">Intermediate</span></li>
+            <li>Reinforcement Learning <span class="badge bg-secondary ms-1">Learning</span></li>
+            <li>NVIDIA Isaac Sim <span class="badge bg-secondary ms-1">Learning</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
       <div class="accordion-item">
         <h2 class="accordion-header" id="heading3">
@@ -354,7 +394,7 @@
     </div>
     <div class="col-6">
       <div class="card text-center p-3 h-100 border-0 shadow-sm">
-        <div class="fs-4 fw-bold text-primary mt-2">ROS2</div>
+        <div class="fs-4 fw-bold text-primary mt-2">ROS2 & Vision</div>
         <div class="text-muted small mt-2">Primary Framework</div>
       </div>
     </div>
@@ -462,11 +502,13 @@
             <div>
               <div class="display-6 mb-3">🤖</div>
               <h5 class="card-title text-primary">AI Vision-Based 4-DOF Robot Arm</h5>
-              <p class="card-text text-muted small">Hand gesture-controlled robotic arm using MediaPipe for real-time hand tracking. Implements forward/inverse kinematics for a 4-DOF arm with Arduino-based actuation.</p>
+              <p class="card-text text-muted small">Hand gesture-controlled robotic arm using MediaPipe for real-time hand tracking. 4 degree of freedom robot arm picks odd marked object for odd number of finger detection and vice versa for even.</p>
               <div class="mb-3">
                 <span class="badge bg-secondary">Python</span>
                 <span class="badge bg-secondary">MediaPipe</span>
                 <span class="badge bg-secondary">Arduino</span>
+                <span class="badge bg-secondary">OpenCV</span>
+                <span class="badge bg-secondary">Kinematics</span>
               </div>
             </div>
             <div class="mt-auto">
@@ -482,12 +524,14 @@
           <div class="card-body d-flex flex-column">
             <div>
               <div class="display-6 mb-3">🚗</div>
-              <h5 class="card-title text-primary">Differential Drive Robot — ROS2</h5>
-              <p class="card-text text-muted small">2-wheel differential drive robot with keyboard teleoperation and Gazebo simulation. Features a modular IMU/flex sensor gesture control layer publishing to /cmd_vel.</p>
+              <h5 class="card-title text-primary">ROS2 Modular DiffBot</h5>
+              <p class="card-text text-muted small">Modular sim-to-real differential drive robot. URDF/Xacro kinematic modeling and Gazebo physics simulation on one side, a custom WiFi/TCP bridge node driving real open-loop hardware (ESP32 + L298N) on the other — with inverse kinematics implemented from first principles and validated on both platforms.</p>
               <div class="mb-3">
                 <span class="badge bg-secondary">ROS2</span>
                 <span class="badge bg-secondary">Gazebo</span>
                 <span class="badge bg-secondary">TF2</span>
+                <span class="badge bg-secondary">ESP32</span>
+                <span class="badge bg-secondary">Sim-to-Real</span>
               </div>
             </div>
             <div class="mt-auto">
@@ -504,11 +548,12 @@
             <div>
               <div class="display-6 mb-3">🔐</div>
               <h5 class="card-title text-primary">RSA Cryptosystem</h5>
-              <p class="card-text text-muted small">A complete, standard-library-only implementation of the RSA algorithm in Python. Features include key generation, encryption/decryption, and a live web demo.</p>
+              <p class="card-text text-muted small">A complete, standard-library-only implementation of the RSA algorithm in Python. Features include key generation, encryption/decryption, a live web demo, and practical security analysis.</p>
               <div class="mb-3">
                 <span class="badge bg-secondary">Python</span>
                 <span class="badge bg-secondary">Streamlit</span>
                 <span class="badge bg-secondary">Cryptography</span>
+                <span class="badge bg-secondary">Security</span>
               </div>
             </div>
             <div class="mt-auto d-flex gap-2">
@@ -591,7 +636,14 @@
               <i class="bi bi-github text-dark fs-4"></i>
               <div>
                 <div class="text-muted small">GitHub</div>
-                <a href="https://github.com/e-moynul" target="_blank" class="contact-link">github.com/e-moynul</a>
+                <a href="https://github.com/E-Moynul" target="_blank" class="contact-link">github.com/E-Moynul</a>
+              </div>
+            </li>
+            <li class="mb-3 d-flex align-items-center gap-3">
+              <i class="bi bi-linkedin text-primary fs-4"></i>
+              <div>
+                <div class="text-muted small">LinkedIn</div>
+                <a href="https://linkedin.com/in/sikder-moynul-hasan-2a8a70345" target="_blank" class="contact-link">linkedin.com/in/sikder-moynul-hasan-2a8a70345</a>
               </div>
             </li>
             <li class="mb-3 d-flex align-items-center gap-3">
@@ -623,7 +675,9 @@
       &copy; 2026 <strong>Moynul Rifat</strong> &mdash; BSc ICT, MBSTU, Bangladesh
     </p>
     <p class="mb-0 small">
-      <a href="https://github.com/e-moynul" target="_blank">GitHub</a>
+      <a href="https://github.com/E-Moynul" target="_blank">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/sikder-moynul-hasan-2a8a70345" target="_blank">LinkedIn</a>
       &nbsp;·&nbsp;
       <a href="https://ieeexplore.ieee.org/document/11546556" target="_blank">IEEE Paper</a>
     </p>
